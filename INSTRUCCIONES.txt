@@ -1,0 +1,18 @@
+1. COPIA DE SEGURIDAD: guarda una copia de bootstrap.php, compose.yaml y database/init.sql.
+2. Descomprime este ZIP EN E:\Proyectos\Donaciones_Solidarias_U4 y reemplaza los archivos indicados.
+3. NO reemplaces index.php, router.php ni assets. Se conservará la interfaz de Unidad 3.
+4. Asegúrate de tener un .env local con contraseñas PRIVADAS (no subirlo).
+5. Ejecuta docker compose config --quiet
+6. Ejecuta docker compose up -d --build
+7. Ejecuta docker compose ps
+8. Abre http://127.0.0.1:8080
+9. Prueba http://127.0.0.1:8080/api/campaigns y /api/stats
+10. Comprueba el panel, el registro y el bloqueo CSRF.
+
+NOTAS:
+- Las sesiones PHP usan un volumen compartido php_sessions entre app1 y app2.
+- La base de datos se inicializa SOLO al crear el volumen mysql_data por primera vez.
+- Si habías creado mysql_data antes con otro SQL, haz migración; NO elimines el volumen si hay datos que deseas conservar.
+- El puerto 8080 se publica solo en 127.0.0.1: es un entorno de pruebas local.
+- No hay HTTPS ni despliegue en la nube todavía.
+- Los registros JSON antiguos NO se migran automáticamente.
